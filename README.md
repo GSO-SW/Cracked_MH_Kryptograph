@@ -1,16 +1,17 @@
-# MyTeam.IsBetter=true (Kryptograph)
+# BFT Kurdistan Monke (Kryptograph)
 
 ## Teammitglieder
 
 | Team    	| Methode 	|Rolle		|Username	|Branch		|
 | ----------- 	| ----------- 	|-----------		|-----------	|-----------	|
-|**MyTeam.IsBetter=true;**	|-|Projektkoordinator|@davobeats|AuslesenDerTabelle|
-|   		|  |Technische Kooordination|@DavidCXV|main|
-|   		| |Entwickler|@sergeyabi|ZeichenZählen|
-|   		| |Entwickler|@Dennis180|ZeichenAusgeben|
-|   		| |Entwickler|@MoritzM1110|ZeichenEntfernen|
-|   		| |Entwickler|@Tamim-2003|AuslesenChiffre|
-|   		| |Entwickler|@NeoEkusoshisuto|ZeichenErsetzten|
+|**BFT Kurdistan Monke**	|-|Projektkoordinator|@augeraus|Zeichen ausgeben|
+|   		|  |Technische Kooordination|@avdol-dk|main|
+|   		| |Entwickler|@chahineD|Zeichen ersetzen|
+|   		| |Entwickler|@Nico-GSO|Zeichen entfernen|
+|   		| |Entwickler|@denizDroger|Zeichen Zählen|
+|   		| |Entwickler|@murii74|Auslesen der Tabelle|
+|   		| |Entwickler|@emrez55|Auslesen der Chiffre|
+|   		| |Entwickler|raphael|Auslesen der Chiffre|
 
 ## Über das Projekt
 ...
