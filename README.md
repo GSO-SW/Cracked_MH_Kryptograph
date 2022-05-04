@@ -4,7 +4,7 @@
 
 | Team    	| Methode 	|Rolle		|Username	|Branch		|
 | ----------- 	| ----------- 	|-----------		|-----------	|-----------	|
-|**BFT Kurdistan Monke**	|-|Projektkoordinator|@augeraus|Zeichen ausgeben|
+|**BFT Kurdistan Monke**	|-|Projektkoordinator|@augeraus|ZeichenAusgeben|
 |   		|  |Technische Kooordination|@avdol-dk|main|
 |   		| |Entwickler|@chahineD|Zeichen ersetzen|
 |   		| |Entwickler|@Nico-GSO|Zeichen entfernen|
