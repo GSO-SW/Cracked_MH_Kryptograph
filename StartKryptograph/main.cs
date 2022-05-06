@@ -4,9 +4,21 @@ namespace StartKryptograph
 {
     class main
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Moin Moin meine aktiven Freunde");
+            Console.WriteLine("\nWillkommen zu unserem Kryptograph.");
+            var Credits = Console.ReadLine();            
+            if (Credits == "ja")
+            {
+                                      ";
+                Console.WriteLine(titel);
+
+
+
+            }
+            
+            
         }
     }
 }
