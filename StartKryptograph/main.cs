@@ -4,10 +4,13 @@ namespace StartKryptograph
 {
     class main
     {
-        static void Main(string[] args)
+        static void Main(string[] AuslesenChiffre)
         {
             Console.WriteLine("Hello World!");
-            KryptographBibliothek.Auslesen.AuslesenChiffre();
+
+            string pfad = "C:\Users\emrecan.z2\source\repos\Cracked_MH_Kryptograph\Chiffre.txt";
+            
+            KryptographBibliothek.Auslesen.AuslesenChiffre(pfad);
            
 
         }
