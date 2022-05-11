@@ -1,5 +1,8 @@
 ﻿using System;
 using Figgle;
+using System.IO;
+using System.Collections;
+
 
 namespace KryptographBibliothek
 {
@@ -7,67 +10,70 @@ namespace KryptographBibliothek
     {
         public static void MainMenue()
         {
-            bool Exit = false;
-
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Clear();
+            bool Exit = false;            
+            Console.WriteLine("progammiert von Deniz Dersim Kest\n\n\n");
+            Console.WriteLine();
+            Console.WriteLine(FiggleFonts.Slant.Render("Cracked MH"), "\n");
+            Console.WriteLine("Drücken sie eine beliebige Taste um fortzufahren");
+            bool flag =false;
             do
             {
-
                 (int, int) cPosBM = Console.GetCursorPosition();
-
-                Console.WriteLine();
-
-                //ASCII art Logo wird erzeugt.
+                Console.ReadKey();
+                Console.Clear();
+                //ASCII art Logo wird erzeugt.  
                 Console.WriteLine
                     (FiggleFonts.Slant.Render("Kryptograph"));
-
                 //Konsolentitel wird geändert.
                 Console.Title = "BFTMultiTool";
-
                 Console.WriteLine("------------------------------------------------------------------------------------\n" +
                                   "                              >>> Hauptmenü <<<\n" +
                                   "------------------------------------------------------------------------------------\n\n");
-
                 Console.WriteLine("Eingabe: exit\t->\tbeendet das Programm");
-
                 //Beschreibung der Software.
-                Console.WriteLine("\n\nMit der Software 'BFTMulti-Tool' sollen wiederkehrende oder besonders aufwendige\n" +
+                Console.WriteLine("\n\nMit der Software 'Kryptograph' sollen wiederkehrende oder besonders aufwendige\n" +
                                   "Aufgabenaus dem schulischen Kontext erleichtert oder gelöst werden. Diese Aufgaben\n" +
                                   "ergeben sich aus den Problemstellungen aus dem Unterricht der Berufsfachschule für Technik.\n\n");
-
-                string HauptAusw;
-
-
-
-
+                
                 //Eingabeaufforderung 
                 Console.WriteLine("Bitte geben Sie den Pfad der Chiffre an.:\n");
                 Console.Write("Eingabe:");
-                HauptAusw = Console.ReadLine().ToLower();
-
-                switch (HauptAusw)
+                string dateipfad = Console.ReadLine();                       
+                switch (dateipfad)
                 {
-
-
                     case "exit":
                         Exit = true;
-                        break;
+                        break;                   
                     default:
-
-                        Console.WriteLine("Ungültige Eingabe");
-                        Console.ReadKey();
-
-                        (int, int) cPosAM = Console.GetCursorPosition();
-
-                        KonsolenExtrasBibliothek.ConsoleExtras.ClearCurrentConsoleLine(cPosBM.Item2, cPosAM.Item2);
-
+                        flag = Pfadprüfer(dateipfad);
+                        if(flag)
+                        {
+                         
+                        }
+                        
                         break;
+
+
                 }
 
-            } while (!Exit);
-
+            } while (!flag);
             if (Exit)
                 Environment.Exit(0);
-
+        }
+        public static bool Pfadprüfer(string pfad)
+        {
+            if (File.Exists(pfad))
+            {
+                Console.WriteLine("der Pfad '{0}'existiert.", pfad);
+                return true;
+            }
+            else
+            {
+                Console.WriteLine("{0} ist kein richtig angegebener Pfad.", pfad);
+                return false;
+            }
 
         }
     }
