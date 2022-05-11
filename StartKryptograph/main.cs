@@ -8,10 +8,10 @@ namespace StartKryptograph
         {
             Console.WriteLine("Hello World!");
 
-            string pfad = "C:\Users\emrecan.z2\source\repos\Cracked_MH_Kryptograph\Chiffre.txt";
+            string pfad1 = @"C:\Users\emrecan.z2\source\repos\Cracked_MH_Kryptograph\Chiffre.txt";
+
             
-            KryptographBibliothek.Auslesen.AuslesenChiffre(pfad);
-           
+
 
         }
     }
