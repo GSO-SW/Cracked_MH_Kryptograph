@@ -50,7 +50,8 @@ namespace KryptographBibliothek
                         flag = Pfadprüfer(dateipfad);
                         if(flag)
                         {
-                         
+                         //Kons...ChiffeEinlesen(pfad);
+                         //
                         }
                         
                         break;
@@ -58,6 +59,10 @@ namespace KryptographBibliothek
 
                 }
 
+            } while (!flag);
+            do
+            {
+             
             } while (!flag);
             if (Exit)
                 Environment.Exit(0);
