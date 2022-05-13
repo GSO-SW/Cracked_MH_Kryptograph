@@ -6,11 +6,12 @@ namespace StartKryptograph
     {
         static void Main(string[] AuslesenChiffre)
         {
-            Console.WriteLine("Hello World!");
 
-            string pfad1 = @"C:\Users\emrecan.z2\source\repos\Cracked_MH_Kryptograph\Chiffre.txt";
 
-            
+            string pfad = @"C:\Users\emrecan.z2\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\Chiffre.txt";
+
+           string Chiffre= KryptographBibliothek.Auslesen.AuslesenChiffre(pfad);
+            Console.WriteLine(Chiffre);
 
 
         }

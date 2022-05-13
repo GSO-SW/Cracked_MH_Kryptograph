@@ -5,27 +5,15 @@ namespace KryptographBibliothek
 {
     public class Auslesen
     {
-        public static  AuslesenChiffre(string pfad )
-        {
-            Console.WriteLine("wir sind beim Auslesen");
+        public static string AuslesenChiffre(string pfad)
+        {   
+            Console.WriteLine(pfad);
 
 
-            string text = System.IO.File.ReadAllText(@"C:\Users\emrecan.z2\source\repos\Cracked_MH_Kryptograph\Chiffre.txt");
-            
-           System.Console.WriteLine("Inhalt der Datei Textlesen.txt = {0}", text);
-
-            string pfad1 = (@"C:\Users\emrecan.z2\source\repos\Cracked_MH_Kryptograph\Chiffre.txt");
-            
+            string chiffre = System.IO.File.ReadAllText(pfad);
 
 
-
-
-            
-
-            //Übergebene Pfad wird nicht genutzt
-            //Rückgabe der Chiffre in Methode umsetzen
-
-           
+            return chiffre;
         }
     }
 }
