@@ -51,6 +51,8 @@ namespace KryptographBibliothek
                         if(flag)
                         {
                          //Kons...ChiffeEinlesen(pfad);
+
+
                          //
                         }
                         
@@ -66,6 +68,7 @@ namespace KryptographBibliothek
             } while (!flag);
             if (Exit)
                 Environment.Exit(0);
+
         }
         public static bool Pfadprüfer(string pfad)
         {
@@ -79,6 +82,7 @@ namespace KryptographBibliothek
                 Console.WriteLine("{0} ist kein richtig angegebener Pfad.", pfad);
                 return false;
             }
+
 
         }
     }
