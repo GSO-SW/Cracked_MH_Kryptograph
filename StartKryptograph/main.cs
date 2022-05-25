@@ -6,9 +6,9 @@ namespace StartKryptograph
     {
         static void Main(string[] args)
         {
-  
+            
 
-
+            KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode("o");
 
 
         }
