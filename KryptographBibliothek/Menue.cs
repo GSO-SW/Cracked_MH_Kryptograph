@@ -17,7 +17,7 @@ namespace KryptographBibliothek
             Console.WriteLine();
             Console.WriteLine(FiggleFonts.Slant.Render("Cracked MH"), "\n");
             Console.WriteLine("Drücken sie eine beliebige Taste um fortzufahren");
-            bool flag =false;
+            bool flag=false;
             do
             {
                 (int, int) cPosBM = Console.GetCursorPosition();
@@ -32,11 +32,7 @@ namespace KryptographBibliothek
                                   "                              >>> Hauptmenü <<<\n" +
                                   "------------------------------------------------------------------------------------\n\n");
                 Console.WriteLine("Eingabe: exit\t->\tbeendet das Programm");
-                //Beschreibung der Software.
-                Console.WriteLine("\n\nMit der Software 'Kryptograph' sollen wiederkehrende oder besonders aufwendige\n" +
-                                  "Aufgabenaus dem schulischen Kontext erleichtert oder gelöst werden. Diese Aufgaben\n" +
-                                  "ergeben sich aus den Problemstellungen aus dem Unterricht der Berufsfachschule für Technik.\n\n");
-                
+                //Beschreibung der Software.               
                 //Eingabeaufforderung 
                 Console.WriteLine("Bitte geben Sie den Pfad der Chiffre an.:\n");
                 Console.Write("Eingabe:");
@@ -51,16 +47,14 @@ namespace KryptographBibliothek
                         if(flag)
                         {
                          //Kons...ChiffeEinlesen(pfad);
-
-
-                         //
-                        }
-                        
+                        }                     
                         break;
-
-
                 }
-
+                Console.WriteLine("Ist der Text eine die auf Englisch entschlüsselt werden soll?" +
+                    "\n wenn ja, geben sie ja ein");
+                var textenglisch = Console.ReadLine();
+                if(textenglisch == ja)
+                
             } while (!flag);
             do
             {
@@ -68,7 +62,6 @@ namespace KryptographBibliothek
             } while (!flag);
             if (Exit)
                 Environment.Exit(0);
-
         }
         public static bool Pfadprüfer(string pfad)
         {
