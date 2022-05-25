@@ -8,7 +8,7 @@ namespace StartKryptograph
         {
             
 
-            KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode("o");
+            KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode();
 
 
         }
