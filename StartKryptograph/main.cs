@@ -6,7 +6,8 @@ namespace StartKryptograph
     {
         static void Main(string[] args)
         {
-            KryptographBibliothek.TabelleAuslesen.Tabelleauslesen();
+            string pfad = @"C:\Users\murtaza.b\source\repos\Cracked_MH_Kryptograph\DeutschTabelle.txt";
+            KryptographBibliothek.TabelleAuslesen.Auslesen(pfad);
 
         }
     }
