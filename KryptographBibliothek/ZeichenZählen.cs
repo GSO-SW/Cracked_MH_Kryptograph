@@ -12,7 +12,7 @@ namespace KryptographBibliothek
             string gef_chiffre = "kyubii";
 
          
-            Dictionary<string, double> Zeichenzahl = new Dictionary<string, double>();
+            Dictionary<char, double> Zeichenzahl = new Dictionary<char, double>();
 
             
             gef_chiffre = gef_chiffre.ToUpper();
@@ -22,13 +22,16 @@ namespace KryptographBibliothek
                 int count = gef_chiffre.Count(a => a == gef_chiffre[i]);
                 Console.WriteLine($"{gef_chiffre[i]}\t{count}");
 
-                bool keyExists = Zeichenzahl.ContainsKey(gef_chiffre);
+              for(int ia = 0; ia <= gef_chiffre.Length;ia++)
+              {
+                                    
+                bool keyExists = Zeichenzahl.ContainsKey(gef_chiffre[ia]);
                 if (!keyExists) 
                 {
-                    Zeichenzahl.Add(gef_chiffre[i],count/gef_chiffre.Length);
-                    Console.WriteLine();            
+                    Zeichenzahl.Add(gef_chiffre[i], count / gef_chiffre.Length);
+                    Console.WriteLine("fortnite");            
                 }
-                //Zeile in Dictionary hinzufügen, wenn Zeichen nicht bereits vorhanden
+              }
             }
         }
     }
