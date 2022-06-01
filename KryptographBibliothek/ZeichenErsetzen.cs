@@ -6,7 +6,7 @@ namespace KryptographBibliothek
 {
     public class ZeichenErsetzen
     {
-        public static string ZeichenErsetzenMethode(string chiffre, Dictionary<string, double> Z_W_Englisch, Dictionary<string, double> Z_W_Deutsch)
+        public static string ZeichenErsetzenMethode(string chiffre, Dictionary<string, double> Z_W_Chiffre, Dictionary<string, double> Z_W_Deutsch)
         {
 
 
@@ -15,26 +15,46 @@ namespace KryptographBibliothek
             Console.WriteLine("------------------------------------------------------------------------------------\n" +
             " >>> Schlüssel <<<\n" +
             "------------------------------------------------------------------------------------\n\n");
-           
-
-
-
-            
-
-
 
 
            
-            ///beise Dictionarys sortieren
+            ///beide Dictionarys sortieren
             ///
-            var sortedDict_chiffre = from entry in Z_W_Englisch orderby entry.Value ascending select entry;
+            var sortedDict_chiffre = from entry in Z_W_Chiffre orderby entry.Value ascending select entry;
             var sortedDict_deutsch = from entry in Z_W_Deutsch orderby entry.Value ascending select entry;
+            
             //Z_W_Englisch = Z_W_Englisch.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-            for (int i = 0; i < Z_W_Englisch.Count; i++)
+            //for (int i = 0; i < Z_W_Deutsch.Count; i++)
+            //{
+            //    chiffre.Replace(sortedDict_chiffre.ElementAt(sortedDict_chiffre.Count() - i - 1).Key, sortedDict_deutsch.ElementAt(sortedDict_deutsch.Count() - i - 1).Key);
+
+            //}
+
+
+
+            for(int i =0; i < chiffre.Length; i++)
             {
-                chiffre.Replace(sortedDict_chiffre.ElementAt(sortedDict_chiffre.Count() - i - 1).Key, sortedDict_deutsch.ElementAt(sortedDict_deutsch.Count() - i - 1).Key);
-                
+                char zeichen = chiffre[i];
+
+                if (sortedDict_chiffre.ToString().Contains(zeichen))
+                {
+                    bool erfolgsindikator = false;
+                    int index = 0;
+                    for (int f = 0; f < sortedDict_chiffre.Count(); f++)
+                    {
+                        erfolgsindikator = chiffre[i] == sortedDict_chiffre.;
+                    }
+
+                        
+
+
+
+
+                }
+
             }
+           
+            Console.WriteLine(chiffre);
             return "";
         }
     }
