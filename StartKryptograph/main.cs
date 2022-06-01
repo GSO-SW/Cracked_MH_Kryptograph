@@ -6,7 +6,7 @@ namespace StartKryptograph
     {
         static void Main(string[] args)
         {
-            KryptographBibliothek.ZeichenAusgeben.AusgebenZeichen(j);
+            KryptographBibliothek.ZeichenAusgeben.AusgebenZeichen();
         }
     }
 }
