@@ -7,29 +7,28 @@ namespace KryptographBibliothek
 {
     public class ZeichenZählen
     {
-        public static void Zaehlen()
+        public Dictionary<string, double> Zaehlen(string gef_chiffre)
         {
-            string gef_chiffre = "kyubii";
+            
+            bool keyExists = false;
 
-         
             Dictionary<string, double> Zeichenzahl = new Dictionary<string, double>();
 
-            
             gef_chiffre = gef_chiffre.ToUpper();
             for (int i =0; i < gef_chiffre.Length; i++)
             {
              
                 int count = gef_chiffre.Count(a => a == gef_chiffre[i]);
-                Console.WriteLine($"{gef_chiffre[i]}\t{count}");
-
-                bool keyExists = Zeichenzahl.ContainsKey(gef_chiffre);
-                if (!keyExists) 
+                
+                keyExists = Zeichenzahl.ContainsKey(gef_chiffre[i].ToString());
+                
+                if (!keyExists)
                 {
-                    Zeichenzahl.Add(gef_chiffre[i],count/gef_chiffre.Length);
-                    Console.WriteLine();            
-                }
-                //Zeile in Dictionary hinzufügen, wenn Zeichen nicht bereits vorhanden
+                    Zeichenzahl.Add(gef_chiffre[i].ToString(),count/(double)gef_chiffre.Length);
+                }                
             }
+            Console.WriteLine(" ");
+            return Zeichenzahl;
         }
     }
 }
