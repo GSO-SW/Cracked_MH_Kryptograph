@@ -24,8 +24,10 @@ namespace KryptographBibliothek
                 
                 if (!keyExists)
                 {
-                    Zeichenzahl.Add(gef_chiffre[i].ToString(),count/(double)gef_chiffre.Length);
-                }                
+                    Zeichenzahl.Add(gef_chiffre[i],count/gef_chiffre.Length);
+                    Console.WriteLine();            
+                }
+                //Zeile in Dictionary hinzufügen, wenn Zeichen nicht bereits vorhanden
             }
             Console.WriteLine(" ");
             return Zeichenzahl;
