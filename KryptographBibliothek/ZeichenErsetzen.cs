@@ -8,54 +8,47 @@ namespace KryptographBibliothek
     {
         public static string ZeichenErsetzenMethode(string chiffre, Dictionary<string, double> Z_W_Chiffre, Dictionary<string, double> Z_W_Deutsch)
         {
-
+            //man kann nicht direkt den string 
+            char[] ChiffreInArray;
+            string konvertierteChiffre = "fortnighte";
+            ChiffreInArray = chiffre.ToCharArray();
 
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("------------------------------------------------------------------------------------\n" +
             " >>> Schlüssel <<<\n" +
             "------------------------------------------------------------------------------------\n\n");
-
-
-           
+            //wird konvertiert
+            Z_W_Chiffre = Z_W_Chiffre.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+            Z_W_Deutsch = Z_W_Deutsch.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             ///beide Dictionarys sortieren
             ///
             var sortedDict_chiffre = from entry in Z_W_Chiffre orderby entry.Value ascending select entry;
             var sortedDict_deutsch = from entry in Z_W_Deutsch orderby entry.Value ascending select entry;
+
+
             
-            //Z_W_Englisch = Z_W_Englisch.OrderBy(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
-            //for (int i = 0; i < Z_W_Deutsch.Count; i++)
-            //{
-            //    chiffre.Replace(sortedDict_chiffre.ElementAt(sortedDict_chiffre.Count() - i - 1).Key, sortedDict_deutsch.ElementAt(sortedDict_deutsch.Count() - i - 1).Key);
-
-            //}
 
 
-
-            for(int i =0; i < chiffre.Length; i++)
+            for (int i = 0; i < chiffre.Length; i++)
             {
-                char zeichen = chiffre[i];
 
-                if (sortedDict_chiffre.ToString().Contains(zeichen))
+                if (sortedDict_chiffre.ToString().Contains(chiffre[i]))
                 {
-                    bool erfolgsindikator = false;
-                    int index = 0;
-                    for (int f = 0; f < sortedDict_chiffre.Count(); f++)
-                    {
-                        erfolgsindikator = chiffre[i] == sortedDict_chiffre.;
-                    }
-
-                        
-
-
-
-
+                    //CS0200 C# Für die Eigenschaft oder den Indexer "string.this[int]" ist eine Zuweisung nicht möglich. Sie sind schreibgeschützt.
+                    int indexzwischenspeicher = sortedDict_deutsch.ToString().IndexOf(chiffre[i]);
+                    //ChiffreInArray[i] = sortedDict_deutsch.ToString().ElementAt(indexzwischenspeicher);
+                    Console.WriteLine(ChiffreInArray[i] = sortedDict_chiffre.ToString().ElementAt(indexzwischenspeicher));
+                    konvertierteChiffre = new string(ChiffreInArray);
+                   
                 }
-
             }
-           
-            Console.WriteLine(chiffre);
-            return "";
+            Console.WriteLine(konvertierteChiffre);
+            return konvertierteChiffre;
         }
+
+        
+            
+        
     }
 }

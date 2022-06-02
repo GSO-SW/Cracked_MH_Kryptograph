@@ -8,7 +8,7 @@ namespace StartKryptograph
     {
         static void Main(string[] args)
         {
-            string chiffre = "ZwplslhbznlshnlyadlykluKlypualyulZwlpjolyrhuumüyWZZwplsltpaZZKLydlpalybunzrhyalukhurTZjoupaazalsslclynyößlyadlykluhsslykpunzdpykkplzlzMlahbylilpYlslhzluvjoupjoagbyClymünbunzzalolukluulzpzalyzamüylpugbrüumapnlzBwkhalnlwshuaLzislpiahigbdhyaludplzpjokplWZptShunglpaalzazjoshnludpykKhurHidäyazrvtwhapipspaäakluShbujoApalsubukkluLersbzpcZplslukhymhilyqlagazjovunlyultpaZvufzUleaNluRvuzvslnlspliäbnlsadlyklu";
+            string chiffre = "Kly ulbl KbhsZluzl Jvuayvssly pza pu Mburapvuzbtmhun buk Clyhyilpabun lpul rshyl Clyilzzlybun gbt KbhsZovjr 4, hsslykpunz mpls tpy kpl nlypunl Hrrb-Shbmglpa däoyluk klz Alzaz ulnhapc hbm, kpl cvy hsslt Jvyl Nhtly zaöylu küymal. Lilumhssz upjoa glpanltäß pza kpl Nyößl kly pualyulu Mlzawshaal, dlsjol upjoa 1 AI, zvuklyu uby 825 NI nyvß pza, cvu klulu dplklybt uby 667 NI nlubaga dlyklu röuulu, kh kly Ylza cvt Zfzalt ilslna dpyk. Pu Glpalu, pu klulu Zwplsl hbjo zjovuths ipz gb 100 NI nyvß zpuk, dlyklu oply zjoulss Wshagwyvisltl luazalolu. Kpl Rvuzvsl bualyzaüaga lydlpalyal Zwlpjolytönspjorlpalu pu Mvyt cvu BZI-Shbmdlyrlu, hsslykpunz röuulu oply uby WZ4-Zwplsl hbznlshnlya dlyklu. Kly pualyul Zwlpjoly rhuu müy WZ5-Zwplsl tpa ZZK-Lydlpalybunzrhyalu (khur T.2.-Zjoupaazalssl) clynyößlya dlyklu, hsslykpunz dpyk kplzlz Mlahbyl ilp Ylslhzl uvjo upjoa gby Clymünbunz zalolu, kluu lz pza lyza müy lpu gbrüumapnlz Bwkhal nlwshua. Lz islpia higbdhyalu, dpl zpjo kpl WZ5 pt Shunglpaalza zjoshnlu dpyk. Khur Hidäyazrvtwhapipspaäa, klu Shbujo-Apalsu buk klu Lersbzpc-Zwplslu khym hily qlaga zjovu nlyul tpa Zvufz Ulea-Nlu-Rvuzvsl nlspliäbnlsa dlyklu. ";
             Dictionary<string, double> tabelle_zeichen_deutsch = new Dictionary<string, double>();
             // Deutsch Wahrschenilichkeiten buchstaben
             tabelle_zeichen_deutsch.Add("A", 0.0558);
@@ -43,35 +43,71 @@ namespace StartKryptograph
             tabelle_zeichen_deutsch.Add("Z", 0.0121); // 0.14 = B
             Dictionary<string, double> tabelle_zeichen_englisch = new Dictionary<string, double>();
             // Englich Wahrschenilichkeiten buchstaben
-            tabelle_zeichen_englisch.Add("A", 0.0834);
-            tabelle_zeichen_englisch.Add("B", 0.0154); // 0.14 = K
-            tabelle_zeichen_englisch.Add("C", 0.0273);
-            tabelle_zeichen_englisch.Add("D", 0.0414);
-            tabelle_zeichen_englisch.Add("E", 0.1260); // 0.14 = U
-            tabelle_zeichen_englisch.Add("F", 0.0203);
-            tabelle_zeichen_englisch.Add("G", 0.0192);
-            tabelle_zeichen_englisch.Add("H", 0.0611);
-            tabelle_zeichen_englisch.Add("I", 0.0671);
-            tabelle_zeichen_englisch.Add("J", 0.0023);
-            tabelle_zeichen_englisch.Add("K", 0.0087);
-            tabelle_zeichen_englisch.Add("L", 0.0424);
-            tabelle_zeichen_englisch.Add("M", 0.0253);
-            tabelle_zeichen_englisch.Add("N", 0.0680);
-            tabelle_zeichen_englisch.Add("O", 0.0770);
-            tabelle_zeichen_englisch.Add("P", 0.0166); // 0.14 = Y
-            tabelle_zeichen_englisch.Add("Q", 0.0009);
-            tabelle_zeichen_englisch.Add("R", 0.0568); // 0.43 = L
-            tabelle_zeichen_englisch.Add("S", 0.0611);
-            tabelle_zeichen_englisch.Add("T", 0.0937);
-            tabelle_zeichen_englisch.Add("U", 0.0285);
-            tabelle_zeichen_englisch.Add("V", 0.0106);
-            tabelle_zeichen_englisch.Add("W", 0.0234); // 0.14 = B
-            tabelle_zeichen_englisch.Add("X", 0.0020);
-            tabelle_zeichen_englisch.Add("Y", 0.0204);
-            tabelle_zeichen_englisch.Add("Z", 0.0006);
+            var Buchstabe = new Dictionary<string, double>() 
+            {   { "A", 0 },
+                { "AE", 0 },
+                { "B", 3 },
+                { "C", 1 },
+                { "D", 9 },
+                { "E", 0 },
+                { "F", 1 },
+                { "G", 2 },
+                { "H", 1 },
+                { "I", 15}, 
+                { "J", 1 },
+                { "K", 2 },
+                { "L", 0 },
+                { "M", 5 },
+                { "N", 5 },
+                { "O", 0 },
+                { "OE", 0 },
+                { "P", 4 }, 
+                { "Q", 6 },
+                { "R", 0 },
+                { "SZ", 0 },
+                { "S", 0 },
+                { "T", 1 },
+                { "U", 9 },
+                { "UE", 0 },
+                { "V", 0 },
+                { "W", 0 },
+                { "X", 6 },
+                { "Y", 1 },
+                { "Z", 1 }
+            };
+            var Fortniter = new Dictionary<string, double>();
+            Fortniter = Zaehlen(chiffre);
+            KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode(chiffre, Fortniter, tabelle_zeichen_deutsch);
+            
+           
+            //Console.WriteLine(Fortniter);
+            
+        }
+        static Dictionary<string, double> Zaehlen(string gef_chiffre)
+        {
+
+            bool keyExists = false;
+
+            Dictionary<string, double> Zeichenzahl = new Dictionary<string, double>();
+
+            gef_chiffre = gef_chiffre.ToUpper();
+            for (int i = 0; i < gef_chiffre.Length; i++)
+            {
+
+                int count = gef_chiffre.Count(a => a == gef_chiffre[i]);
+
+                keyExists = Zeichenzahl.ContainsKey(gef_chiffre[i].ToString());
+
+                if (!keyExists)
+                {
+                    Zeichenzahl.Add(gef_chiffre[i].ToString(), count / gef_chiffre.Length);
+                    
+                }
+                //Zeile in Dictionary hinzufügen, wenn Zeichen nicht bereits vorhanden
+            }
             
 
-            KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode(chiffre,tabelle_zeichen_englisch,tabelle_zeichen_deutsch);
+            return Zeichenzahl;
         }
     }
 }
