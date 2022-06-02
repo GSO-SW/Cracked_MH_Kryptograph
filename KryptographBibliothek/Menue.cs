@@ -67,7 +67,7 @@ namespace KryptographBibliothek
 
                     dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\EnglischTabelle.txt";
                     flag = Pfadprüfer(dateipfad);
-                    do
+                    while (!flag);
                     {
                         Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
                         dateipfad = Console.ReadLine();
@@ -75,7 +75,7 @@ namespace KryptographBibliothek
                         Console.ReadKey();
                         Console.Clear();
                         
-                    } while (flag);
+                    } 
                     flag = false;
                     tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
                 }
@@ -83,14 +83,14 @@ namespace KryptographBibliothek
                 {
                     dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\DeutschTabelle.txt";
                     flag = Pfadprüfer(dateipfad);
-                    do
+                    while (!flag)
                     {
                         Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
                         dateipfad = Console.ReadLine();
                         flag = Pfadprüfer(dateipfad);
                         Console.ReadKey();
                         Console.Clear();
-                    } while (flag);
+                    } 
                     tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
                 }
                 string gef_chiff = KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen(chiffre);
