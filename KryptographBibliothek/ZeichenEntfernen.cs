@@ -4,7 +4,7 @@ namespace KryptographBibliothek
 {
     public class ZeichenEntfernen
     {
-        public static void Zeichenentfernen()
+        public static string Zeichenentfernen(string chiffre)
         {
             bool wiederholen = true;
             bool falscheeingabe = false;
@@ -14,6 +14,7 @@ namespace KryptographBibliothek
                 string wiederholenauswahl;
                 string entfernenauswahl;
                 wiederholen = true;
+              
                 string chiffrebuffer = chiffre;
 
                 Console.WriteLine(chiffre + "\n\n");
