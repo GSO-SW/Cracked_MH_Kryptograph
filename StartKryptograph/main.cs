@@ -7,7 +7,7 @@ namespace StartKryptograph
         static void Main(string[] args)
         {
 
-            KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen();
+            string chiffre = KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen();
 
 
 
