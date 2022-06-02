@@ -48,8 +48,10 @@ namespace KryptographBibliothek
 
 
             Console.Write(chiffre);
-                
-            return chiffre;
+
+            string chiffre_gefiltert = chiffre;
+
+            return chiffre_gefiltert;
          
         }
     }
