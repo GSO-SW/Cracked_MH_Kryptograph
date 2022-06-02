@@ -2,6 +2,7 @@
 using Figgle;
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 
 
 namespace KryptographBibliothek
@@ -10,6 +11,8 @@ namespace KryptographBibliothek
     {
         public static void MainMenue()
         {
+            // Verbesserung der Benutzerfreundlichkeit
+
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Clear();
             bool Exit = false;            
@@ -18,6 +21,9 @@ namespace KryptographBibliothek
             Console.WriteLine(FiggleFonts.Slant.Render("Cracked MH"), "\n");
             Console.WriteLine("Drücken sie eine beliebige Taste um fortzufahren");
             bool flag=false;
+            string chiffre = "";
+            string dateipfad = "";
+            //Dictionary<string, double> Tabelle;
             do
             {
                 (int, int) cPosBM = Console.GetCursorPosition();
@@ -36,7 +42,8 @@ namespace KryptographBibliothek
                 //Eingabeaufforderung 
                 Console.WriteLine("Bitte geben Sie den Pfad der Chiffre an.:\n");
                 Console.Write("Eingabe:");
-                string dateipfad = Console.ReadLine();                       
+                dateipfad = Console.ReadLine();   
+                //fragt dateipfad ab
                 switch (dateipfad)
                 {
                     case "exit":
@@ -46,22 +53,59 @@ namespace KryptographBibliothek
                         flag = Pfadprüfer(dateipfad);
                         if(flag)
                         {
-                         //Kons...ChiffeEinlesen(pfad);
+                            chiffre = KryptographBibliothek.Auslesen.AuslesenChiffre(dateipfad);
                         }                     
                         break;
                 }
                 Console.WriteLine("Ist der Text eine die auf Englisch entschlüsselt werden soll?" +
                     "\n wenn ja, geben sie ja ein");
+                var tabella = new Dictionary<string, double>();
                 var textenglisch = Console.ReadLine();
-                if(textenglisch == ja)
-                
-            } while (!flag);
-            do
-            {
-             
-            } while (!flag);
+                //Variierung zwischen Englisch und Deutsch
+                if (textenglisch == "ja")
+                {
+
+                    dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\EnglischTabelle.txt";
+                    flag = Pfadprüfer(dateipfad);
+                    do
+                    {
+                        Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
+                        dateipfad = Console.ReadLine();
+                        flag = Pfadprüfer(dateipfad);
+                        Console.ReadKey();
+                        Console.Clear();
+                        
+                    } while (flag);
+                    flag = false;
+                    tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
+                }
+                else
+                {
+                    dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\DeutschTabelle.txt";
+                    flag = Pfadprüfer(dateipfad);
+                    do
+                    {
+                        Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
+                        dateipfad = Console.ReadLine();
+                        flag = Pfadprüfer(dateipfad);
+                        Console.ReadKey();
+                        Console.Clear();
+                    } while (flag);
+                    tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
+                }
+                string gef_chiff = KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen(chiffre);
+
+                var chiffre_tabella = new Dictionary<string,double>();
+                chiffre_tabella = KryptographBibliothek.ZeichenZählen.Zaehlen(gef_chiff);
+                string fertig_chiff = KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode(gef_chiff,tabella, chiffre_tabella);
+                KryptographBibliothek.ZeichenAusgeben.AusgebenZeichen(chiffre,fertig_chiff);
+
+
+            } while (!flag);           
             if (Exit)
+            { 
                 Environment.Exit(0);
+            }
         }
         public static bool Pfadprüfer(string pfad)
         {
@@ -75,6 +119,7 @@ namespace KryptographBibliothek
                 Console.WriteLine("{0} ist kein richtig angegebener Pfad.", pfad);
                 return false;
             }
+
 
 
         }

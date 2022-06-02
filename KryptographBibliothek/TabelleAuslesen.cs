@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace KryptographBibliothek
 {
     public class TabelleAuslesen
     {
-        public static void Auslesen(string Pfad)
+        public static Dictionary<string, double> Auslesen(string Pfad)
         {
             
             string[] lines = System.IO.File.ReadAllLines(Pfad);
@@ -24,6 +25,7 @@ namespace KryptographBibliothek
                
                  
             }
+            return dictionary;
         }
     }
 } 

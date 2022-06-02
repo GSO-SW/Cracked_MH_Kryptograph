@@ -7,7 +7,7 @@ namespace KryptographBibliothek
 {
     public class ZeichenZählen
     {
-        public Dictionary<string, double> Zaehlen(string gef_chiffre)
+        public static Dictionary<string, double> Zaehlen(string gef_chiffre)
         {
             
             bool keyExists = false;

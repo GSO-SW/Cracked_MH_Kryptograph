@@ -4,11 +4,11 @@ namespace KryptographBibliothek
 {
     public class ZeichenAusgeben
     {
-        public static void AusgebenZeichen()
+        public static void AusgebenZeichen(string chiffre, string fertig_chiff)
         {
 
-            string chiffre = "Kal, ";
-            string klartext = "Das, ";
+           
+            
 
 
             Console.WriteLine("Ergebnis");
@@ -20,16 +20,16 @@ namespace KryptographBibliothek
 
             for (int i = 0; i < chiffre.Length; i++)
             {
-                if (chiffre[i] != klartext[i])
+                if (chiffre[i] != fertig_chiff[i])
                 {
                     Console.BackgroundColor
                     = ConsoleColor.Red;
-                    Console.Write(klartext[i]);
+                    Console.Write(fertig_chiff[i]);
                 }
                 else
                 {
                     Console.BackgroundColor = ConsoleColor.Black;
-                    Console.Write(klartext[i]);
+                    Console.Write(fertig_chiff[i]);
                 }
 
                 //Huier ist dfer Hintergrund entweder Rot oder Schwarz
