@@ -7,7 +7,9 @@ namespace KryptographBibliothek
         public static string Zeichenentfernen()
         {
             bool wiederholen = true;
+            bool falscheeingabe = false;
             string chiffre = "Kly ulbl KbhsZluzl Jvuayvssly pza pu Mburapvuzbtmhun buk Clyhyilpabun lpul rshyl Clyilzzlybun gbt KbhsZovjr 4, hsslykpunz mpls tpy kpl nlypunl Hrrb-Shbmglpa däoyluk klz Alzaz ulnhapc hbm, kpl cvy hsslt Jvyl Nhtly zaöylu küymal. Lilumhssz upjoa glpanltäß pza kpl Nyößl kly pualyulu Mlzawshaal, dlsjol upjoa 1 AI, zvuklyu uby 825 NI nyvß pza, cvu klulu dplklybt uby 667 NI nlubaga dlyklu röuulu, kh kly Ylza cvt Zfzalt ilslna dpyk. Pu Glpalu, pu klulu Zwplsl hbjo zjovuths ipz gb 100 NI nyvß zpuk, dlyklu oply zjoulss Wshagwyvisltl luazalolu. Kpl Rvuzvsl bualyzaüaga lydlpalyal Zwlpjolytönspjorlpalu pu Mvyt cvu BZI-Shbmdlyrlu, hsslykpunz röuulu oply uby WZ4-Zwplsl hbznlshnlya dlyklu. Kly pualyul Zwlpjoly rhuu müy WZ5-Zwplsl tpa ZZK-Lydlpalybunzrhyalu (khur T.2.-Zjoupaazalssl) clynyößlya dlyklu, hsslykpunz dpyk kplzlz Mlahbyl ilp Ylslhzl uvjo upjoa gby Clymünbunz zalolu, kluu lz pza lyza müy lpu gbrüumapnlz Bwkhal nlwshua. Lz islpia higbdhyalu, dpl zpjo kpl WZ5 pt Shunglpaalza zjoshnlu dpyk. Khur Hidäyazrvtwhapipspaäa, klu Shbujo-Apalsu buk klu Lersbzpc-Zwplslu khym hily qlaga zjovu nlyul tpa Zvufz Ulea-Nlu-Rvuzvsl nlspliäbnlsa dlyklu.";
+            
             do
             {
                 string wiederholenauswahl;
@@ -19,27 +21,38 @@ namespace KryptographBibliothek
 
                 Console.WriteLine("Welche Zeichen möchten Sie entfernen? \n\n");
                 entfernenauswahl = Console.ReadLine();
-
+                Console.WriteLine();
 
 
                 chiffre = chiffre.Replace(entfernenauswahl, "");
 
-                
 
-
-                Console.WriteLine("Möchten Sie noch etwas entfernen?");
-                wiederholenauswahl = Console.ReadLine();
-                if (wiederholenauswahl == "Ja")
+                do
                 {
-                    wiederholen = true;
-                }
+                    falscheeingabe = false;
+                    Console.WriteLine("Möchten Sie noch etwas entfernen? Bitte antworten Sie mit 'Ja' oder 'Nein'.");
+                    wiederholenauswahl = Console.ReadLine();
+                    Console.WriteLine();
+                    if (wiederholenauswahl == "Ja")
+                    {
+                        wiederholen = true;
+                        Console.WriteLine("Die neue Chiffre lautet:\n\n");
+                    }
 
-                else if (wiederholenauswahl == "Nein")
-                {
-                    wiederholen = false;
-                }
+                    else if (wiederholenauswahl == "Nein")
+                    {
+                        wiederholen = false;
+                        Console.WriteLine("Die neue Chiffre:\n\n");
+                    }
 
+                    else
+                    {
+                        falscheeingabe = true;
+                        Console.WriteLine("Bitte benutzen Sie als Antwort entweder 'Ja' oder 'Nein'.\n\n Bitte drücken Sie eine beliebige Taste um es erneut zu versuchen.");
+                        Console.ReadKey();
+                    }
 
+                } while (falscheeingabe == true);
 
 
 
@@ -48,6 +61,8 @@ namespace KryptographBibliothek
 
 
             Console.Write(chiffre);
+
+            Console.WriteLine("\n\n");
 
             string chiffre_gefiltert = chiffre;
 
