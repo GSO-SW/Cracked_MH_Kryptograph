@@ -53,52 +53,58 @@ namespace KryptographBibliothek
                         flag = Pfadprüfer(dateipfad);
                         if(flag)
                         {
-                            chiffre = KryptographBibliothek.Auslesen.AuslesenChiffre(dateipfad);
-                        }                     
+                            Console.WriteLine("Ist der Text eine die auf Englisch entschlüsselt werden soll? \n wenn ja, geben sie ja ein");
+                            var tabella = new Dictionary<string, double>();
+                            var textenglisch = Console.ReadLine();
+                            //Variierung zwischen Englisch und Deutsch
+                            if (textenglisch == "ja")
+                            {
+
+                                dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\EnglischTabelle.txt";
+                                
+                                do
+                                {
+                                    Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
+                                    dateipfad = Console.ReadLine();
+                                    flag = Pfadprüfer(dateipfad);
+                                    if (!flag) Console.WriteLine("Dateipfad nicht gefunden...");
+                                    Console.ReadKey();
+                                    Console.Clear();
+
+
+                                } while (!flag);
+                                flag = false;
+                                tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
+
+                            }
+                            else
+                            {
+                                dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\DeutschTabelle.txt";
+                                flag = Pfadprüfer(dateipfad);
+                                while (!flag)
+                                {
+                                    Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
+                                    dateipfad = Console.ReadLine();
+                                    flag = Pfadprüfer(dateipfad);
+                                    Console.ReadKey();
+                                    Console.Clear();
+                                }
+                                tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
+                            }
+                            string gef_chiff = KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen(chiffre);
+
+                            var chiffre_tabella = new Dictionary<string, double>();
+                            chiffre_tabella = KryptographBibliothek.ZeichenZählen.Zaehlen(gef_chiff);
+                            string fertig_chiff = KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode(gef_chiff, tabella, chiffre_tabella);
+                            KryptographBibliothek.ZeichenAusgeben.AusgebenZeichen(chiffre, fertig_chiff);
+                        }
+                        else
+                        {
+                            Console.WriteLine("Detiepfad nicht gefunden");
+                        }
                         break;
                 }
-                Console.WriteLine("Ist der Text eine die auf Englisch entschlüsselt werden soll?" +
-                    "\n wenn ja, geben sie ja ein");
-                var tabella = new Dictionary<string, double>();
-                var textenglisch = Console.ReadLine();
-                //Variierung zwischen Englisch und Deutsch
-                if (textenglisch == "ja")
-                {
 
-                    dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\EnglischTabelle.txt";
-                    flag = Pfadprüfer(dateipfad);
-                    while (!flag);
-                    {
-                        Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
-                        dateipfad = Console.ReadLine();
-                        flag = Pfadprüfer(dateipfad);
-                        Console.ReadKey();
-                        Console.Clear();
-                        
-                    } 
-                    flag = false;
-                    tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
-                }
-                else
-                {
-                    dateipfad = @"C:\Users\49177\Source\Repos\GSO-SW\Cracked_MH_Kryptograph\DeutschTabelle.txt";
-                    flag = Pfadprüfer(dateipfad);
-                    while (!flag)
-                    {
-                        Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
-                        dateipfad = Console.ReadLine();
-                        flag = Pfadprüfer(dateipfad);
-                        Console.ReadKey();
-                        Console.Clear();
-                    } 
-                    tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
-                }
-                string gef_chiff = KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen(chiffre);
-
-                var chiffre_tabella = new Dictionary<string,double>();
-                chiffre_tabella = KryptographBibliothek.ZeichenZählen.Zaehlen(gef_chiff);
-                string fertig_chiff = KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode(gef_chiff,tabella, chiffre_tabella);
-                KryptographBibliothek.ZeichenAusgeben.AusgebenZeichen(chiffre,fertig_chiff);
 
 
             } while (!flag);           
