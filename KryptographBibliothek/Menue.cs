@@ -16,7 +16,7 @@ namespace KryptographBibliothek
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Clear();
             bool Exit = false;            
-            Console.WriteLine("progammiert von Deniz Dersim Kest\n\n\n");
+            Console.WriteLine("progammiert von Deniz Dersim Kest, Samir Yusuf Muric, Deniz Mehmet Ali Kartal, Raphael Hoeck, Emre Can Zeren, Nico Billig, Murtaza Bezhad und Chahine Djobbi \n\n\n");
             Console.WriteLine();
             Console.WriteLine(FiggleFonts.Slant.Render("Cracked MH"), "\n");
             Console.WriteLine("Drücken sie eine beliebige Taste um fortzufahren");
