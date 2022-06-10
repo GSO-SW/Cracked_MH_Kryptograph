@@ -1,12 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace StartKryptograph
 {
     class main
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            KryptographBibliothek.Menue.MainMenue();
+            
+            
         }
     }
 }
