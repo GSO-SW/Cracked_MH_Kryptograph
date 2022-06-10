@@ -95,7 +95,7 @@ namespace KryptographBibliothek
 
                             var chiffre_tabella = new Dictionary<string, double>();
                             chiffre_tabella = KryptographBibliothek.ZeichenZählen.Zaehlen(gef_chiff);
-                            string fertig_chiff = KryptographBibliothek.ZeichenErsetzen.ZeichenErsetzenMethode(gef_chiff, tabella, chiffre_tabella);
+                            string fertig_chiff = KryptographBibliothek.ZeichenErsetzen.ZeichenersetzenMethode(gef_chiff, tabella, chiffre_tabella);
                             KryptographBibliothek.ZeichenAusgeben.AusgebenZeichen(chiffre, fertig_chiff);
                         }
                         else
