@@ -5,9 +5,9 @@ VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AddFiles", "AddFiles", "{D568B256-4706-4BF7-99BE-78948D1C45CE}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\Downloads\Chiffre.txt = ..\..\..\..\Downloads\Chiffre.txt
-		DeutschTabelle.txt = DeutschTabelle.txt
-		EnglischTabelle.txt = EnglischTabelle.txt
+		\\BK175055\denizdersi.k\Download\Chiffre.txt = \\BK175055\denizdersi.k\Download\Chiffre.txt
+		\\BK175055\denizdersi.k\Download\Deutsch_Wahrscheinlichkeiten.txt = \\BK175055\denizdersi.k\Download\Deutsch_Wahrscheinlichkeiten.txt
+		\\BK175055\denizdersi.k\Download\Englisch_Wahrscheinlichkeiten.txt = \\BK175055\denizdersi.k\Download\Englisch_Wahrscheinlichkeiten.txt
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KonsolenExtrasBibliothek", "KonsolenExtrasBibliothek\KonsolenExtrasBibliothek.csproj", "{E0B8FA0F-E05E-421D-B499-7DA31F630D64}"

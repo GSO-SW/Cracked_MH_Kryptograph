@@ -12,7 +12,7 @@ namespace KryptographBibliothek
 
             string chiffre = System.IO.File.ReadAllText(pfad);
 
-
+            
             return chiffre;
         }
     }

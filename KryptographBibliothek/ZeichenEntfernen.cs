@@ -23,9 +23,11 @@ namespace KryptographBibliothek
                 entfernenauswahl = Console.ReadLine();
                 Console.WriteLine();
 
+                string[] immer_ent = { "Ü", "Ä", "Ö", "'", "!", "%", " " };
 
                 chiffre = chiffre.Replace(entfernenauswahl, "");
 
+                Console.WriteLine(chiffre + "\n\n");
 
                 do
                 {
