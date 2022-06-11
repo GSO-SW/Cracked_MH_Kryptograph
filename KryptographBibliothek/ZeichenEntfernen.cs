@@ -14,7 +14,6 @@ namespace KryptographBibliothek
                 string wiederholenauswahl;
                 string entfernenauswahl;
                 wiederholen = true;
-                string chiffrebuffer = chiffre;
 
 
                 Console.WriteLine("\nWelche Zeichen möchten Sie entfernen?\n");
