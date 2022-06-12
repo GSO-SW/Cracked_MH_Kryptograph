@@ -9,13 +9,14 @@ namespace KryptographBibliothek
 {
     public class Menue
     {
+       
         public static void MainMenue()
         {
             // Verbesserung der Benutzerfreundlichkeit
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Clear();
-            bool Exit = false;            
+            bool Exit = false;
             Console.WriteLine("progammiert von Deniz Dersim Kest, Samir Yusuf Muric, Deniz Mehmet Ali Kartal, Raphael Hoeck, Emre Can Zeren, Nico Billig, Murtaza Bezhad und Chahine Djobbi \n\n\n");
             Console.WriteLine();
             Console.WriteLine(FiggleFonts.Slant.Render("Cracked MH"), "\n");
@@ -40,72 +41,64 @@ namespace KryptographBibliothek
                 Console.WriteLine("Eingabe: exit\t->\tbeendet das Programm");
                 //Beschreibung der Software.               
                 //Eingabeaufforderung 
-                Console.WriteLine("Bitte geben Sie den Pfad der Chiffre an.:\n");
-                Console.Write("Eingabe:");
-                //dateipfad = Console.ReadLine();   
-                dateipfad = @"\\BK175055\denizdersi.k\Download\Chiffre.txt";
+                bool pfadwert = false;
+                do
+                {
+                    Console.WriteLine("Bitte geben Sie den Pfad der Chiffre an.:\n");
+                    Console.Write("Eingabe:");
+                    dateipfad = Console.ReadLine();
 
+                    if (Pfadprüfer(dateipfad))
+                    {                      
+                        pfadwert = true;
+                    }
+                } while (!pfadwert);
                 //fragt dateipfad ab
                 switch (dateipfad)
-                {
+                {       
                     case "exit":
                         Exit = true;
                         break;                   
                     default:
-                        flag = Pfadprüfer(dateipfad);
-                        if(flag)
-                        {
-                            chiffre = KryptographBibliothek.Auslesen.AuslesenChiffre(dateipfad);
-                            Console.Clear();
-                            Console.WriteLine("Ist der Text eine die auf Deutsch entschlüsselt werden soll? \n wenn ja, geben sie ja ein");
+                        
+                        
                             var tabella = new Dictionary<string, double>();
-                            var textenglisch = Console.ReadLine();
-                            //Variierung zwischen Englisch und Deutsch
-                            if (textenglisch == "ja")
+                            
+                                chiffre = KryptographBibliothek.Auslesen.AuslesenChiffre(dateipfad);
+                                Console.Clear();
+                                Console.WriteLine("geben sie den Pfad der Tabelle an");                               
+                                var pfadtabelle = Console.ReadLine();
+                            //Fragt Pfad der tabelle ab
+                          do
                             {
-
-                                dateipfad = @"\\BK175055\denizdersi.k\Download\Deutsch_Wahrscheinlichkeiten.txt";
+                            pfadtabelle = Console.ReadLine();
+                            if (Pfadprüfer(pfadtabelle))
+                                {
+                                    tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
+                                flag = true;
+                                }
+                            else if (pfadtabelle == "exit")
+                            { 
+                            Exit = true;
+                                break;
+                            }
+                            
+                                else
+                                {
+                                    flag = false;
+                                    Console.WriteLine("Geben sie bitte einen Richtigen Pfad an");
+                                    
                                 
-                                //do
-                                //{
-                                //    Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
-                                //    dateipfad = Console.ReadLine();
-                                //    flag = Pfadprüfer(dateipfad);
-                                //    if (!flag) Console.WriteLine("Dateipfad nicht gefunden...");
-                                //    Console.ReadKey();
-                                //    Console.Clear();
-
-
-                                //} while (!flag);
-                                //flag = false;
-                                tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
-
-                            }
-                            else
-                            {
-                                dateipfad = @"\\BK175055\denizdersi.k\Download\Englisch_Wahrscheinlichkeiten.txt";
-                                //flag = Pfadprüfer(dateipfad);
-                                //while (!flag)
-                                //{
-                                //    Console.WriteLine("Bitte geben sie die dazu gehörge Tabelle bzw Pfad an");
-                                //    dateipfad = Console.ReadLine();
-                                //    flag = Pfadprüfer(dateipfad);
-                                //    Console.ReadKey();
-                                //    Console.Clear();
-                                //}
-                                tabella = KryptographBibliothek.TabelleAuslesen.Auslesen(dateipfad);
-                            }
-                            string gef_chiff = KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen(chiffre);
+                                }
+                            } while (!flag);
+                           string gef_chiff = KryptographBibliothek.ZeichenEntfernen.Zeichenentfernen(chiffre);
 
                             var chiffre_tabella = new Dictionary<string, double>();
                             chiffre_tabella = KryptographBibliothek.ZeichenZählen.Zaehlen(gef_chiff);
                             string fertig_chiff = KryptographBibliothek.ZeichenErsetzen.ZeichenersetzenMethode(gef_chiff, tabella, chiffre_tabella);
                             KryptographBibliothek.ZeichenAusgeben.AusgebenZeichen(chiffre, fertig_chiff);
-                        }
-                        else
-                        {
-                            Console.WriteLine("Detiepfad nicht gefunden");
-                        }
+                        
+                       
                         break;
                 }
 
